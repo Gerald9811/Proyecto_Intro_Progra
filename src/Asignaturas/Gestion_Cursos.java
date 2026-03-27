@@ -11,56 +11,97 @@ import javax.swing.JOptionPane;
  * @author sebas
  */
 public class Gestion_Cursos {
+    
+    public static Info_Cursos info_cursos[] = new Info_Cursos[20];
+    public static int contador = 0;
 
- public static void menucursos(){
-        int menuDeOpciones = 0;
-        Info_Cursos cursos = new Info_Cursos("Introduccion a la Programacion Orientada a Objetos", "SC-202", 4);
-        
-        do {
-            menuDeOpciones = Integer.parseInt(JOptionPane.showInputDialog("Menu de cursos \n\n" +
-                                                                          "1. Crear curso \n" +
-                                                                          "2. Modificar curso \n" +
-                                                                          "3. Eliminar curso \n" +
-                                                                          "4. Matricular estudiante \n" +
-                                                                          "5. Eliminar estudiante \n" +
-                                                                          "6. Buscar curso \n" +
-                                                                          "7. Buscar estudiante \n" +
-                                                                          "8. Calcular duracion \n" +
-                                                                          "9. Salir del menu \n\n" +
-                                                                          "Digite un numero para seleccionar en el menu: "));
+    public static void Crear_Curso(){
+        if (contador < info_cursos.length) {
             
- 
+            String nombreCurso = JOptionPane.showInputDialog("Digite el nombre del curso: ");
+            String IDCurso = JOptionPane.showInputDialog("Digite el codigo del curso: ");
+            String Profesor = JOptionPane.showInputDialog("Ingrese el nombre del docente del curso: ");
+            JOptionPane.showMessageDialog(null, "La duracion Estandar del curso sera programada a 15 semanas.");
+            int Duracion = 15;
+
+            info_cursos[contador++] = new Info_Cursos(nombreCurso, IDCurso, Profesor, Duracion);
             
-            
-            switch (menuDeOpciones) {
-                case 1:
-                    cursos.crearCurso();
-                    break;
-                case 2:
-                    cursos.modificarCurso();
-                    break;
-                case 3:
-                    cursos.eliminarCurso();
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    cursos.buscarCurso();
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    JOptionPane.showMessageDialog(null, "Saliendo del menu...");
-                    break;
-                 
-            }
-            
-        } while (menuDeOpciones != 10);
-        
+        } else {
+            JOptionPane.showMessageDialog(null, "Limite de cursos excedido.");
     }
+    
+    }
+    public static void Modificar_Curso(){
+        String codigoBusqueda = JOptionPane.showInputDialog("Digite el codigo del curso a modificar: ");
+        Info_Cursos cursoAModificar = null;
+
+        for (int i = 0; i < contador; i++) {
+            if (info_cursos[i].getIDCurso().equals(codigoBusqueda)) {
+                cursoAModificar = info_cursos[i];
+                break;
+            }
+
+        }
+
+        if (cursoAModificar != null) {
+            
+            String nombreCurso = JOptionPane.showInputDialog("Digite el nombre del curso: ");
+            cursoAModificar.setNombreCurso(nombreCurso);
+            String IDCurso = JOptionPane.showInputDialog("Digite el codigo del curso: ");
+            cursoAModificar.setIDCurso(IDCurso);
+            String Profesor = JOptionPane.showInputDialog("Ingrese el nombre del docente del curso: ");
+            cursoAModificar.setProfesor(Profesor);
+            JOptionPane.showMessageDialog(null, "La duracion Estandar del curso sera programada a 15 semanas.");
+            int Duracion = 15;
+            cursoAModificar.setDuracion(Duracion);
+
+            JOptionPane.showMessageDialog(null, "Curso actualizado: " + cursoAModificar.toString());
+        } else  {
+            JOptionPane.showMessageDialog(null, "No se encontro un curso con ese codigo.");
+        }
+
+
+    }
+    public static void Eliminar_Curso(){
+        int indice = -1;
+        String codigoBusqueda = JOptionPane.showInputDialog("Digite el codigo del curso a eliminar: ");
+
+        for (int i = 0; i < contador; i++) {
+            if (info_cursos[i].getIDCurso().equals(codigoBusqueda)) {
+                indice = i;
+                break;
+            }
+
+        }
+
+        if (indice == -1) {
+            JOptionPane.showMessageDialog(null, "No se encontro un curso con ese codigo.");
+            return;
+        }
+
+        for (int i = indice; i < contador - 1; i++) {
+            info_cursos[i] = info_cursos[i + 1];
+        }
+
+        info_cursos[contador - 1] = null;
+
+        contador--;
+    }
+    public void buscarCurso() {
+    Info_Cursos encontrado = null;
+    String codigoBusqueda = JOptionPane.showInputDialog("Digite el codigo del curso a buscar: ");
+    
+    for (int i = 0; i < contador; i++) {
+        info_cursos[i] = encontrado;
+        break;
+    }
+    
+    if (encontrado != null) {
+        JOptionPane.showMessageDialog(null, "Curso encontrado: " + info_cursos.toString());
+    } else {
+        JOptionPane.showMessageDialog(null, "No se encuentran cursos registrados.");
+    }
+        
+}
     
 }

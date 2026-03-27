@@ -4,10 +4,30 @@
  */
 package Asistencia;
 
-/**
- *
- * @author user
- */
 public class Asistencia {
-    
+
+    public String codigoCurso;
+    public String nombreCurso;
+    public int semanas;
+    public int cantidadEstudiantes;
+    public String[][] matriz;
+    public String[] estudiantes;
+
+    public Asistencia(String codigoCurso, String nombreCurso, int semanas, int cantidadEstudiantes) {
+        this.codigoCurso = codigoCurso;
+        this.nombreCurso = nombreCurso;
+        this.semanas = semanas;
+        this.cantidadEstudiantes = cantidadEstudiantes;
+
+        matriz = new String[cantidadEstudiantes][semanas];
+        estudiantes = new String[cantidadEstudiantes];
+
+        for (int i = 0; i < cantidadEstudiantes; i++) {
+            estudiantes[i] = "Estudiante " + (i + 1);
+
+            for (int j = 0; j < semanas; j++) {
+                matriz[i][j] = "";
+            }
+        }
+    }
 }

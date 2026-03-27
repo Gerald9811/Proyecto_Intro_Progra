@@ -11,67 +11,9 @@ public class Gestion_Estudiantes {
     public static Info_Estudiantes[] estudiantes = new Info_Estudiantes[1];
     public static int contador = 0;
 
-    public static void menuEstudiantes() {
 
-        int opcion = 0;
 
-        do {
-            String opciones[] = {
-                "Agregar estudiante",
-                "Mostrar estudiantes",
-                "Buscar estudiante",
-                "Editar estudiante",
-                "Eliminar estudiante",
-                "Matricular estudiante a curso",
-                "Retirar estudiante de curso",
-                "Buscar Curso",
-                "Salir"
-            };
-
-            opcion = JOptionPane.showOptionDialog(null, "Seleccione una opcion",
-                    "Gestión de Estudiantes",
-                    JOptionPane.DEFAULT_OPTION,
-                    JOptionPane.QUESTION_MESSAGE,
-                    null, opciones, opciones[0]);
-
-            switch (opcion) {
-
-                case 0:
-                    agregarEstudiante();
-                    break;
-
-                case 1:
-                    mostrarEstudiantes();
-                    break;
-
-                case 2:
-                    buscarEstudiante();
-                    break;
-
-                case 3:
-                    editarEstudiante();
-                    break;
-
-                case 4:
-                    eliminarEstudiante();
-                    break;
-                case 5:
-                    matricularCurso();
-                    break;
-                case 6:
-                    retirarCurso();
-                    break;    
-                case 7:
-                    buscarCurso();
-                    break;         
-
-            }
-
-        } while (opcion != 8);
-
-    }
-
-    public static void agregarEstudiante() {
+    public static void Crear_Estudiante() {
 
         if (contador < estudiantes.length) {
 
@@ -133,7 +75,7 @@ public class Gestion_Estudiantes {
 
     }
 
-    public static void editarEstudiante() {
+    public static void Modificar_Estudiante() {
 
         int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del estudiante:"));
 
@@ -171,7 +113,7 @@ public class Gestion_Estudiantes {
 
     }
 
-    public static void eliminarEstudiante() {
+    public static void Eliminar_Estudiante() {
 
         int indice = -1;
 
@@ -200,7 +142,7 @@ public class Gestion_Estudiantes {
 
     }
 
- public static void matricularCurso() {
+ public static void Matricular_Estudiante() {
 
     int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Digite el ID del estudiante:"));
     Info_Estudiantes estudiante = null;
@@ -223,7 +165,7 @@ public class Gestion_Estudiantes {
     }
 }   
  
-public static void retirarCurso() {
+public static void Eliminar_Matricula() {
 
     int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Digite el ID del estudiante:"));
     Info_Estudiantes estudiante = null;

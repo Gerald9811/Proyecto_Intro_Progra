@@ -76,7 +76,7 @@ public class Gestor_Submenus {
                     GEstudiantes.Eliminar_Estudiante();
                     break;
                 case 3:
-                    FAuxiliares.Matricular_Estudiante();
+                    GEstudiantes.Matricular_Estudiante();
                     break;
                 case 4:
                     FAuxiliares.Eliminar_Matricula();
