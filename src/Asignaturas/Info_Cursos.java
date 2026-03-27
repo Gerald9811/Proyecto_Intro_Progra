@@ -61,7 +61,7 @@ public void crearCurso() {
     if (contador < lista_cursos.length) {
         nombreCurso = JOptionPane.showInputDialog("Digite el nombre del curso: ");
         codigoCurso = JOptionPane.showInputDialog("Digite el codigo del curso: ");
-        creditosCurso = Integer.parseInt(JOptionPane.showInputDialog("Digite el nombre del curso: "));
+        creditosCurso = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de creditos para este curso: "));
         
         lista_cursos[contador++] = new Info_Cursos(nombreCurso, codigoCurso,creditosCurso);
     } else {
