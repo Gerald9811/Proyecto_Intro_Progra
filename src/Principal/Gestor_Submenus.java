@@ -86,26 +86,24 @@ public class Gestor_Submenus {
         } while(opcion != 5);
     }
     public static void Asistencia(){
-        
-        Gestion_Asistencia GAsistencia = new Gestion_Asistencia();
-    
+
         int opcion = 0;
-        
+
         do {
-            String opciones[] = {"Pasar Lista","Modificar Asistencia","Generar Lista de Asistencia","Regresar al Menu Anterior"};
+            String opciones[] = {"Pasar Lista","Modificar Asistencia","Ver Lista de Asistencia","Regresar al Menu Anterior"};
             opcion = JOptionPane.showOptionDialog(null, "Seleccione una Opcion para continuar",
-                                 "Modulo de Gestion de Estudiantes", JOptionPane.DEFAULT_OPTION,
+                                 "Modulo de Asistencia", JOptionPane.DEFAULT_OPTION,
                                  JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
-            
+
             switch(opcion){
                 case 0:
-                    GAsistencia.Pasar_Lista();
+                    Gestion_Asistencia.Pasar_Lista();
                     break;
                 case 1:
-                    GAsistencia.Modificar_Asistencia();
+                    Gestion_Asistencia.Modificar_Asistencia();
                     break;
                 case 2:
-                    GAsistencia.Generar_Lista();
+                    Gestion_Asistencia.Generar_Lista();
                     break;
             }
 

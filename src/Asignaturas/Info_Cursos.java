@@ -20,7 +20,7 @@ public class Info_Cursos {
 public Info_Cursos(String nombreCurso, String IDCurso, String profesor, int Duracion) {
     this.nombreCurso = nombreCurso;
     this.IDCurso = IDCurso;
-    this.Profesor = Profesor;
+    this.Profesor = profesor;
     this.Duracion = Duracion;
     }
 
