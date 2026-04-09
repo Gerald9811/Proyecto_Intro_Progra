@@ -110,4 +110,21 @@ public class Gestion_Cursos {
             JOptionPane.showMessageDialog(null, "No se encontro un curso con ese codigo.");
         }
     }
+    
+    //Funciones para el testeo del sistema
+    
+    //Crea cursos automaticos para el Testeo del sistema
+    public static void Crear_CursoT(String nombreCurso, String IDCurso, String profesor){
+        
+        if (contador < info_cursos.length) {
+            int duracion = 15;
+            info_cursos[contador++] = new Info_Cursos(nombreCurso, IDCurso, profesor, duracion);
+            Gestion_Asistencia.CrearCurso(IDCurso, nombreCurso);
+            
+        }else {
+            JOptionPane.showMessageDialog(null,"Limite de cursos excedido.");
+        }
+    }
+    
+    
 }

@@ -5,6 +5,8 @@
 package Reportes;
 
 import javax.swing.JOptionPane;
+import Asistencia.Gestion_Asistencia;
+import Estudiantes.Gestion_Estudiantes;
 
 /**
  *
@@ -13,8 +15,14 @@ import javax.swing.JOptionPane;
 public class Reportes {
     
 
-    public static void Asistencia_Curso(){}
-    public static void Asistencia_Estudiante(){}
-    public static void Datos_Estudiante(){}
+    public static void Asistencia_Curso(){
+        Gestion_Asistencia.Generar_Lista();
+    }
+    public static void Asistencia_Estudiante(){
+        Gestion_Asistencia.AsistenciaXEstudiante();
+    }
+    public static void Datos_Estudiante(){
+        Gestion_Estudiantes.Datos_Estudiante();
+    }
     
 }

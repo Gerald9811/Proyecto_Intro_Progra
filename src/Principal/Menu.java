@@ -5,6 +5,7 @@
 package Principal;
 
 import javax.swing.JOptionPane;
+import Auxiliares.Test_Data;
 
 /**
  *
@@ -15,7 +16,18 @@ public class Menu {
     /**
      * @param args the command line arguments
      */
+    
+    //Funciones de Testeo del sistema
+    
+    public static void test(){
+        Test_Data.Test_Data();
+        
+    }
+    
     public static void main(String[] args) {
+        
+        //Cargar Datos de Testeo
+        test();
         
         Gestor_Submenus Gestion = new Gestor_Submenus();
         

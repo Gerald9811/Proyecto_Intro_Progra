@@ -265,4 +265,85 @@ public class Gestion_Asistencia {
                 "Lista de Asistencia - " + curso.nombreCurso,
                 JOptionPane.PLAIN_MESSAGE);
     }
+    
+    
+    //Al borrar a un estudiante del sistema elimina su matricula de todos los cursos en los que se encuentre
+    public static void RetiroCompleto(int id){
+        
+        for (int i =0; i < contador; i++) {
+            if(cursos[i] !=null){
+                cursos[i].eliminarEstudiante(id);
+            }
+        }
+    }
+    
+    //Reporte de asistencia por estudiante
+    public static void AsistenciaXEstudiante(){
+        if (contador == 0) {
+            JOptionPane.showMessageDialog(null,"No hay cursos registrados");
+            return;
+        }
+        
+        String entrada = JOptionPane.showInputDialog("Digite el ID del Estudiante");
+        if (entrada == null) return;
+        
+        int idBuscar = Integer.parseInt(entrada);
+        
+        String reporte = "";
+        boolean encontrado = false;
+        String nombreEstudiante = "";
+        
+        reporte += "Reporte de Asistencia por Estudiante";
+        reporte += "===================================\n\n";
+        
+        for (int i = 0; i < contador; i++) {
+            Asistencia curso = cursos[i];
+            
+            int posEstudiante = curso.buscarEstudiante(idBuscar);
+            
+            if(posEstudiante != - 1) {
+                encontrado = true;
+                nombreEstudiante = curso.nombreEstudiantes[posEstudiante];
+                
+                reporte += "Curso: " + curso.nombreCurso + "\n";
+                reporte += "Codigo: " + curso.codigoCurso + "\n";
+                reporte += "Estudiante: " + curso.nombreEstudiantes[posEstudiante] + "\n";
+                
+                int presentes = 0;
+                int ausentes = 0;
+                int tardias = 0;
+                int justificados = 0;
+                
+                for (int j =0; j < Asistencia.SEMANAS; j++) {
+                    String estado = curso.matriz[posEstudiante][j];
+                    
+                    reporte +="Semana " + (j+1) +": " + estado + "\n";
+                    
+                    if(estado.equals("P")) {
+                        presentes++;
+                    } else if (estado.equals("A")) {
+                       ausentes++;
+                    } else if (estado.equals("T")) {
+                       tardias++;
+                    } else if (estado.equals("J")) {
+                       justificados++;
+                    }
+                }
+                
+                reporte +="\nResumen de la asistencia del curso:\n";
+                reporte +="Presente: " + presentes + "\n";
+                reporte +="Llegadas tardias: " + tardias + "\n";
+                reporte +="Ausencias: " + ausentes + "\n";
+                reporte +="Ausencias Justificadas: " + justificados + "\n";
+                reporte +="===========================================\n\n";
+            }
+        }
+        
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "El estudiante no esta matriculado en ningun curso");
+            return;
+        }
+        
+        JOptionPane.showMessageDialog(null, reporte);
+    }
 }
