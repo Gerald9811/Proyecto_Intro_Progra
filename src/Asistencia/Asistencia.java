@@ -12,7 +12,7 @@ public class Asistencia {
     public String codigoCurso;
     public String nombreCurso;
     public int cantidadEstudiantes;
-    public String[][] matriz;           // [MAX_ESTUDIANTES][SEMANAS]
+    public String[][] matriz;           
     public String[] nombreEstudiantes;
     public int[] idEstudiantes;
 
@@ -33,7 +33,7 @@ public class Asistencia {
 
     public boolean agregarEstudiante(String nombre, int id) {
         if (cantidadEstudiantes >= MAX_ESTUDIANTES) return false;
-        // Evitar duplicados
+      
         for (int i = 0; i < cantidadEstudiantes; i++) {
             if (idEstudiantes[i] == id) return false;
         }
