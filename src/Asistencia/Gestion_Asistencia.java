@@ -15,7 +15,6 @@ public class Gestion_Asistencia {
     public static Asistencia[] cursos = new Asistencia[20];
     public static int contador = 0;
 
-    // Llamado automáticamente al crear un curso en Gestion_Cursos
     public static void CrearCurso(String codigo, String nombre) {
         if (contador >= cursos.length) return;
         if (BuscarCurso(codigo) != -1) return; // ya existe
@@ -23,7 +22,6 @@ public class Gestion_Asistencia {
         contador++;
     }
 
-    // Llamado automáticamente al eliminar un curso en Gestion_Cursos
     public static void EliminarCurso(String codigo) {
         int pos = BuscarCurso(codigo);
         if (pos == -1) return;
@@ -34,14 +32,14 @@ public class Gestion_Asistencia {
         contador--;
     }
 
-    // Llamado al matricular un estudiante en un curso
+    
     public static void MatricularEstudiante(String codigoCurso, String nombre, int id) {
         int pos = BuscarCurso(codigoCurso);
         if (pos == -1) return;
         cursos[pos].agregarEstudiante(nombre, id);
     }
 
-    // Llamado al quitar la matrícula de un estudiante
+  
     public static void EliminarEstudiante(String codigoCurso, int id) {
         int pos = BuscarCurso(codigoCurso);
         if (pos == -1) return;
@@ -57,7 +55,7 @@ public class Gestion_Asistencia {
         return -1;
     }
 
-    // Pasa la lista para UNA semana específica, con opciones P/A/T/J
+ 
     public static void Pasar_Lista() {
         String codigo = JOptionPane.showInputDialog("Digite el código del curso:");
         if (codigo == null) return;
@@ -113,7 +111,7 @@ public class Gestion_Asistencia {
             );
 
             if (opcion == JOptionPane.CLOSED_OPTION || opcion == 4) {
-                // Cancelar o cerrar: detiene el recorrido
+               
                 break;
             }
             curso.matriz[i][semana] = String.valueOf(opciones[opcion].charAt(0));
@@ -122,7 +120,7 @@ public class Gestion_Asistencia {
         JOptionPane.showMessageDialog(null, "Lista de la semana " + (semana + 1) + " guardada.");
     }
 
-    // Modifica la asistencia de un estudiante específico en una semana específica
+ 
     public static void Modificar_Asistencia() {
         String codigo = JOptionPane.showInputDialog("Digite el código del curso:");
         if (codigo == null) return;
@@ -141,7 +139,7 @@ public class Gestion_Asistencia {
             return;
         }
 
-        // Mostrar lista de estudiantes
+       
         StringBuilder lista = new StringBuilder();
         lista.append("Estudiantes en ").append(curso.nombreCurso).append(":\n\n");
         for (int i = 0; i < curso.cantidadEstudiantes; i++) {
@@ -210,7 +208,7 @@ public class Gestion_Asistencia {
         }
     }
 
-    // Muestra la matriz completa del curso en una tabla scrollable
+  
     public static void Generar_Lista() {
         String codigo = JOptionPane.showInputDialog("Digite el código del curso:");
         if (codigo == null) return;
@@ -234,7 +232,6 @@ public class Gestion_Asistencia {
         sb.append("Curso : ").append(curso.nombreCurso).append("\n");
         sb.append("Código: ").append(curso.codigoCurso).append("\n\n");
 
-        // Encabezado de semanas
         sb.append(String.format("%-22s", "Estudiante"));
         for (int j = 0; j < Asistencia.SEMANAS; j++) {
             sb.append(String.format(" S%-2d", j + 1));
@@ -242,7 +239,7 @@ public class Gestion_Asistencia {
         sb.append("\n");
         sb.append("-".repeat(22 + Asistencia.SEMANAS * 4)).append("\n");
 
-        // Fila por estudiante
+       
         for (int i = 0; i < curso.cantidadEstudiantes; i++) {
             String nombre = curso.nombreEstudiantes[i];
             if (nombre.length() > 21) nombre = nombre.substring(0, 21);
@@ -267,7 +264,7 @@ public class Gestion_Asistencia {
     }
     
     
-    //Al borrar a un estudiante del sistema elimina su matricula de todos los cursos en los que se encuentre
+  
     public static void RetiroCompleto(int id){
         
         for (int i =0; i < contador; i++) {
@@ -277,7 +274,7 @@ public class Gestion_Asistencia {
         }
     }
     
-    //Reporte de asistencia por estudiante
+    
     public static void AsistenciaXEstudiante(){
         if (contador == 0) {
             JOptionPane.showMessageDialog(null,"No hay cursos registrados");
