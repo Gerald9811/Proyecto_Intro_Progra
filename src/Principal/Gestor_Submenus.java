@@ -60,7 +60,7 @@ public class Gestor_Submenus {
         int opcion = 0;
         
         do {
-            String opciones[] = {"Crear Estudiante","Modificar Estudiante","Mostrar Lista de Estudiantes", "Buscar estudiante", "Eliminar Estudiante","Matricular Curso","Eliminar Matricula","Regresar al Menu Anterior"};
+            String opciones[] = {"Crear Estudiante","Modificar Estudiante","Eliminar Estudiante","Matricular Curso","Eliminar Matricula","Regresar al Menu Anterior"};
             opcion = JOptionPane.showOptionDialog(null, "Seleccione una Opcion para continuar",
                                  "Modulo de Gestion de Estudiantes", JOptionPane.DEFAULT_OPTION,
                                  JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
@@ -73,23 +73,17 @@ public class Gestor_Submenus {
                     GEstudiantes.Modificar_Estudiante();
                     break;
                 case 2:
-                    GEstudiantes.mostrarEstudiantes();
-                    break;    
-                case 3:
-                    GEstudiantes.buscarEstudiante();
-                    break;    
-                case 4:
                     GEstudiantes.Eliminar_Estudiante();
                     break;
-                case 5:
+                case 3:
                     GEstudiantes.Matricular_Estudiante();
                     break;
-                case 6:
+                case 4:
                     FAuxiliares.Eliminar_Matricula();
                     break;
             }
 
-        } while(opcion != 7);
+        } while(opcion != 5);
     }
     public static void Asistencia(){
 

@@ -21,11 +21,11 @@ public class Gestion_Estudiantes {
 
             int id = contador + 1;
 
-            String nombre = JOptionPane.showInputDialog(null,"Ingrese el nombre del estudiante:");
+            String nombre = JOptionPane.showInputDialog("Ingrese el nombre del estudiante:");
             int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del estudiante:"));
-            String correo = JOptionPane.showInputDialog(null,"Ingrese el correo del estudiante:");
-            int celular = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el teléfono del estudiante:"));
-            int cedula = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la cédula del estudiante:"));
+            String correo = JOptionPane.showInputDialog("Ingrese el correo del estudiante:");
+            int celular = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el teléfono del estudiante:"));
+            int cedula = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cédula del estudiante:"));
 
             estudiantes[contador++] = new Info_Estudiantes(nombre, id, edad, correo,celular,cedula);
 
@@ -149,7 +149,7 @@ public class Gestion_Estudiantes {
 
     public static void Matricular_Estudiante() {
 
-       int idBuscar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el ID del estudiante:"));
+       int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Digite el ID del estudiante:"));
        Info_Estudiantes estudiante = null;
 
        for (int i = 0; i < contador; i++) {
@@ -164,11 +164,11 @@ public class Gestion_Estudiantes {
            return;
        }
 
-       String codigoCurso = JOptionPane.showInputDialog(null, "Digite el código del curso a matricular:");
+       String codigoCurso = JOptionPane.showInputDialog("Digite el código del curso a matricular:");
        if (codigoCurso == null) return;
        codigoCurso = codigoCurso.trim();
 
- 
+       // Verificar que el curso existe
        boolean cursoExiste = false;
        for (int i = 0; i < Gestion_Cursos.contador; i++) {
            if (Gestion_Cursos.info_cursos[i].getIDCurso().equals(codigoCurso)) {
