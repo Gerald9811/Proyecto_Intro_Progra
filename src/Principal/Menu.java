@@ -12,17 +12,16 @@ import Auxiliares.Test_Data;
  * @author users
  */
 public class Menu {
-
-    /**
-     * @param args the command line arguments
-     */
-    
+      
     //Funciones de Testeo del sistema
     
     public static void test(){
         Test_Data.Test_Data();
-        
     }
+    
+    /**
+     * @param args the command line arguments
+     */
     
     public static void main(String[] args) {
         
