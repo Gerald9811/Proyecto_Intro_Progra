@@ -20,8 +20,11 @@ public class Gestion_Cursos {
         if (contador < info_cursos.length) {
 
             String nombreCurso = JOptionPane.showInputDialog("Digite el nombre del curso: ");
+            if (nombreCurso == null) return;
             String IDCurso = JOptionPane.showInputDialog("Digite el codigo del curso: ");
+            if (IDCurso == null) return;
             String Profesor = JOptionPane.showInputDialog("Ingrese el nombre del docente del curso: ");
+            if (Profesor == null) return;
             JOptionPane.showMessageDialog(null, "La duracion Estandar del curso sera programada a 15 semanas.");
             int Duracion = 15;
 

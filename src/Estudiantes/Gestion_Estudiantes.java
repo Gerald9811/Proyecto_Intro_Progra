@@ -22,10 +22,18 @@ public class Gestion_Estudiantes {
             int id = contador + 1;
 
             String nombre = JOptionPane.showInputDialog("Ingrese el nombre del estudiante:");
-            int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del estudiante:"));
+            if (nombre == null) return;
+            String inputEdad = JOptionPane.showInputDialog("Ingrese la edad del estudiante:");
+            if (inputEdad == null) return;
+            int edad = Integer.parseInt(inputEdad);
             String correo = JOptionPane.showInputDialog("Ingrese el correo del estudiante:");
-            int celular = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el teléfono del estudiante:"));
-            int cedula = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cédula del estudiante:"));
+            if (correo == null) return;
+            String inputCelular = JOptionPane.showInputDialog("Ingrese el teléfono del estudiante:");
+            if (inputCelular == null) return;
+            int celular = Integer.parseInt(inputCelular);
+            String inputCedula = JOptionPane.showInputDialog("Ingrese la cédula del estudiante:");
+            if (inputCedula == null) return;
+            int cedula = Integer.parseInt(inputCedula);
 
             estudiantes[contador++] = new Info_Estudiantes(nombre, id, edad, correo,celular,cedula);
 
@@ -58,7 +66,9 @@ public class Gestion_Estudiantes {
 
     public static void buscarEstudiante() {
 
-        int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del estudiante:"));
+        String inputId = JOptionPane.showInputDialog("Ingrese el ID del estudiante:");
+        if (inputId == null) return;
+        int idBuscar = Integer.parseInt(inputId);
 
         Info_Estudiantes encontrado = null;
 
@@ -79,7 +89,9 @@ public class Gestion_Estudiantes {
 
     public static void Modificar_Estudiante() {
 
-        int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del estudiante:"));
+        String inputId = JOptionPane.showInputDialog("Ingrese el ID del estudiante:");
+        if (inputId == null) return;
+        int idBuscar = Integer.parseInt(inputId);
 
         Info_Estudiantes estudianteEditar = null;
 
@@ -119,7 +131,9 @@ public class Gestion_Estudiantes {
 
         int indice = -1;
 
-        int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del estudiante:"));
+        String inputId = JOptionPane.showInputDialog("Ingrese el ID del estudiante:");
+        if (inputId == null) return;
+        int idBuscar = Integer.parseInt(inputId);
 
         for (int i = 0; i < contador; i++) {
             if (estudiantes[i].getIdEstudiante() == idBuscar) {
@@ -149,7 +163,10 @@ public class Gestion_Estudiantes {
 
     public static void Matricular_Estudiante() {
 
-       int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Digite el ID del estudiante:"));
+       String inputId = JOptionPane.showInputDialog("Digite el ID del estudiante:");
+       if (inputId == null) return;
+       int idBuscar = Integer.parseInt(inputId);
+       
        Info_Estudiantes estudiante = null;
 
        for (int i = 0; i < contador; i++) {
@@ -199,7 +216,10 @@ public class Gestion_Estudiantes {
 
     public static void Eliminar_Matricula() {
 
-        int idBuscar = Integer.parseInt(JOptionPane.showInputDialog("Digite el ID del estudiante:"));
+        String input = JOptionPane.showInputDialog("Digite el ID del estudiante:");
+        if (input == null) return;
+        int idBuscar = Integer.parseInt(input);
+        
         Info_Estudiantes estudiante = null;
 
         for (int i = 0; i < contador; i++) {
